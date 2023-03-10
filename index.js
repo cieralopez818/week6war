@@ -41,10 +41,39 @@ function playGame(deck) {
     let player2= {
         hand: deck.splice(0,26),
     }
+let player1Score = [];
+let player2Score = [];
 
     console.log("player1:",player1.hand);
     console.log("player2:",player2.hand);
 
     console.log(`Player 1 plays a ${player1.hand[0].face}; Player 2 plays a ${player2.hand[0].face}`);
+// players currently have 26 cards each
+// compare player cards
+        //showing if player1 card is > player2 card
+    if("player1  > players2 card"){
+        console.log("give the winning player a point",);
+        this.scorePlayer1++
+    }
 
-}
+        //showing if player1 card is < player2 card
+        else if("player2 > player1"){
+        console.log("give the winning player a point",);
+        this.scorePlayer2++
+            }
+            else (player1.hand[0].face === player2.hand[0].face);
+            console.log("player1Score => player2Score");
+                player1Score +=1
+                player2Score +=1
+                    alert ("Tie"); //if not > or < then it has to be =
+            // no win; no points
+//declare which player has the most point or if its a tie
+        }
+    console.log(`Player 1 score: ${this.scorePlayer1}`);
+    console.log(`Player 2 score: ${this.scorePlayer2}`);
+            if(this.scorePlayer1 > this.scorePlayer2){
+                console.log("Player 1 Wins");
+            }
+            if(this.scorePlayer2 > this.scorePlayer1){
+                console.log("Player 2 Wins");
+            }
