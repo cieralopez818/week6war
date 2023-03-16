@@ -10,7 +10,7 @@ class Card {
 class Deck {
   constructor() {
     this.deckOfCards = [];
-    this.entireDeck = this.makeDeck();
+    // this.entireDeck = this.makeDeck();
 }
 
   //make deck function -  begin
@@ -24,45 +24,49 @@ class Deck {
         let card = new Card(suits[s], values[x], x + 2);
         this.deckOfCards.push(card); //pushes an instance to the deckOfCards array
         }
+        console.log(this.deckOfCards.length);
     }
 };
+// function-ended
+
     shuffleDeck() {
-    for(let i = this.deck - 1; i > 0; i--){
+    for(let i = this.deckOfCards.length - 1; i > 0; i--){
         let j= Math.floor(Math.random() * (i+1));
-        let tempIndex = this.deck[i];
-        this.deck[i] = this.deck[j];
-        this.desk[j] = tempIndex;
+        let tempIndex = this.deckOfCards[i];
+        this.deckOfCards[i] = this.deckOfCards[j];
+        this.deckOfCards[j] = tempIndex;
         }
-        return shuffleDeck;
+        // return shuffleDeck;
     }
     deal()  {
         console.log("deal");
-        let card = this.deck.pop();
+        let card = this.deckOfCards.pop();
         console.log(card + " has been drawn from the deck.")
         }
     }
 
-class players {
+class Player {
     constructor (name)  {
         this.name= name;
         this.point= 0;
-        this.hands= hands
+        this.playerHand= [];
     }
 }
 class Game  {
     constructor()   {
-        this.player= [];
+        this.players= [];
     }
     start() {
-        this.players.push(new Players);
-        this.players.push(new Players);
+        this.players.push(new Player("Ciera"));
+        this.players.push(new Player("Molly"));
         console.log('War', this.players);
 
         let myDeck= new Deck ();
-        myDeck.createDeck();
+        myDeck.makeDeck();
 
-        let shuffleDeck= myDeck.shuffleDeck();
-        myDeck.dealDeck(this.players, shuffleDeck);
+        // let shuffleDeck= myDeck.shuffleDeck();
+        myDeck.shuffleDeck();
+        myDeck.deal();
 
         this.playGame();
         this.endGame();
@@ -72,13 +76,13 @@ playGame () {
     console.log('War');
     let player1 = this.players[0];
     let player2 = this.players[1];
+    console.log("player 1 is :" + player1 + " player2 is " + player2);
+      let roundWinner = '';
+      let turn = 0;
 
-    let roundWinner = '';
-    let turn = 0;
-
-    while(player1.hands.length!==0 && player2.hands.length!==0){
-        let player1Card= player1.hands.pop();
-        let player2Card= player2.hands.pop();
+    while(player1.playerHand.length!==0 && player2.playerHand.length!==0){
+        let player1.deckOfCards= playerHand();
+        let player2.deckOfCards= playerHand();
 
     if(player1Card.value > player2Card.value){
         roundWinner= player1.name;
@@ -89,7 +93,7 @@ playGame () {
         player2.points +=1;        
     }
     else {
-        console.log()
+        console.log('Players Tie');
         }
     }
 }
@@ -110,3 +114,5 @@ endGame() {
         }
     }
 }
+newGame= new Game();
+newGame.start();
