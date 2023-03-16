@@ -40,7 +40,7 @@ class Deck {
     }
     deal()  {
         console.log("deal");
-        let card = this.deckOfCards.pop();
+        let card = this.deckOfCards();
         console.log(card + " has been drawn from the deck.")
         }
     }
@@ -52,6 +52,10 @@ class Player {
         this.playerHand= [];
     }
 }
+let player1= new Player("Ciera");
+let player2= new Player("Molly");
+
+
 class Game  {
     constructor()   {
         this.players= [];
@@ -80,9 +84,8 @@ playGame () {
       let roundWinner = '';
       let turn = 0;
 
-    while(player1.playerHand.length!==0 && player2.playerHand.length!==0){
-        let player1.deckOfCards= playerHand();
-        let player2.deckOfCards= playerHand();
+    for(let i=0; i <26; i++){
+
 
     if(player1Card.value > player2Card.value){
         roundWinner= player1.name;
@@ -116,3 +119,5 @@ endGame() {
 }
 newGame= new Game();
 newGame.start();
+let deck= new Deck ();
+console.log(deck);
